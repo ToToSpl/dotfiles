@@ -45,7 +45,7 @@ gaps inner 10
 gaps outer 10
 
 # start a terminal#i3-sensible-terminal
-bindsym $mod+Return exec "alacritty msg create-window"  
+bindsym $mod+Return exec "~/.config/alacritty/new-window.sh"
 
 # kill focused window
 bindsym $mod+Shift+q kill
