@@ -10,12 +10,34 @@ Plug 'sbdchd/neoformat'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
+" GUI
+Plug 'itchyny/lightline.vim'
+Plug 'machakann/vim-highlightedyank'
+Plug 'morhetz/gruvbox'
+Plug 'kyazdani42/nvim-web-devicons' " optional, for file icons
+Plug 'kyazdani42/nvim-tree.lua'
+Plug 'lukas-reineke/indent-blankline.nvim'
+
 call plug#end()
 
+" Color theme
+autocmd vimenter * ++nested colorscheme gruvbox
 
+set mouse=a
+set number
+autocmd BufWritePre <buffer> :Format
 
+lua << EOF
+require("nvim-tree").setup()
 
+vim.opt.list = true
 
+require("indent_blankline").setup {
+    show_current_context = true,
+    show_current_context_start = true,
+}
+
+EOF
 
 "coc setup...
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
